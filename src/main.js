@@ -6,6 +6,7 @@ import { renderGallery } from "./js/render-functions";
 const form = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader-wrapper');
+const input = document.querySelector('.search-form input');
 
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
@@ -23,6 +24,7 @@ form.addEventListener('submit', (event) => {
 
 	gallery.innerHTML = '';
 	loader.style.display = 'flex';
+	input.classList.add('active');
 
 
 	fetchImages(query)
@@ -49,5 +51,6 @@ form.addEventListener('submit', (event) => {
 	.finally(() => {
 		form.searchQuery.value = '';
 		loader.style.display = 'none';
+		input.classList.remove('active');
 	});
 });
