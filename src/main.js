@@ -11,7 +11,7 @@ const input = document.querySelector('.search-form input');
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
 
-	const query = form.searchQuery.value.trim();
+	const query = event.target.elements.searchQuery.value;
 
 
 	if (!query) {
